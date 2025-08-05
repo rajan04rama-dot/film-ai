@@ -11,6 +11,7 @@ jobs:
 
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI }}
+      TMDB_API_KEY:   ${{ secrets.TMDBKEY }}
     
 
     steps:
