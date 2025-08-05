@@ -8,23 +8,19 @@ export default function Home() {
   const [recs, setRecs] = useState([]);
 
   const getRecs = async () => {
-    // build the absolute URL and log it
     const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/recommendations`;
-    console.log("Calling backend at:", url);
-
     try {
       const res = await axios.post(url, { description: input });
       setRecs(res.data);
     } catch (err) {
-      console.error("Recommendation error:", err);
-      alert("Sorry, something went wrong. Check the console for details.");
+      console.error(err);
+      alert("Something went wrong—check the console.");
     }
   };
 
   return (
     <main className="p-8 max-w-xl mx-auto">
       <h1 className="text-2xl mb-4">Film AI 🎬</h1>
-
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -32,14 +28,12 @@ export default function Home() {
         className="w-full border p-2 rounded mb-2"
         rows={4}
       />
-
       <button
         onClick={getRecs}
         className="bg-blue-600 text-white px-4 py-2 rounded"
       >
         Recommend
       </button>
-
       <div className="mt-6 space-y-4">
         {recs.map((m, i) => (
           <div key={i} className="border p-3 rounded">
