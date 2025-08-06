@@ -10,7 +10,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 TMDB_API_KEY   = os.getenv("TMDB_API_KEY")
 
 app = FastAPI()
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["https://film-ai-l8uf.vercel.app"], allow_methods=["*"], allow_headers=["*"])
 
 class UserInput(BaseModel):
     description: str
