@@ -13,11 +13,11 @@ app = FastAPI()
 
 # ─── CORS ───────────────────────────────────────────────────────────────
 origins = [
-    "https://film-ai-l8uf.vercel.app",
+    "https://film-ai-9jng.vercel.app",
 ]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://film-ai-l8uf.vercel.app"],
+    allow_origins=["https://film-ai-9jng.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
