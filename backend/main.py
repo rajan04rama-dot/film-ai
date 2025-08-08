@@ -4,7 +4,10 @@ from pydantic import BaseModel
 from openai import OpenAI
 import openai, requests, os
 from dotenv import load_dotenv
+import requests
+import os
 
+# load .env (so OPENAI_API_KEY and TMDB_API_KEY are picked up)
 load_dotenv()
 
 AI_API_KEY = os.getenv("OPENROUTER_API_KEY")
@@ -50,3 +53,4 @@ def recommend(user_input: UserInput):
     params = {"api_key":TMDB_API_KEY, "query":criteria}
     res = requests.get(url, params=params).json().get("results", [])[:5]
     return [{"title":m["title"], "overview":m["overview"]} for m in res]
+
